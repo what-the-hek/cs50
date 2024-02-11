@@ -47,11 +47,11 @@ function PaddleSelectState:update(dt)
 
         gStateMachine:change('serve', {
             paddle = Paddle(self.currentPaddle),
-            bricks = LevelMaker.createMap(1),
+            bricks = LevelMaker.createMap(32),
             health = 3,
             score = 0,
             highScores = self.highScores,
-            level = 1,
+            level = 32,
             recoverPoints = 5000
         })
     end
@@ -87,7 +87,7 @@ function PaddleSelectState:render()
     -- in a shadowy form to let us know we're as far right as we can go
     if self.currentPaddle == 4 then
         -- tint; give it a dark gray with half opacity
-        love.graphics.setColor(40/255, 40/255, 40/255, 128)
+        love.graphics.setColor(40/255, 40/255, 40/255, 128/255)
     end
     
     love.graphics.draw(gTextures['arrows'], gFrames['arrows'][2], VIRTUAL_WIDTH - VIRTUAL_WIDTH / 4,

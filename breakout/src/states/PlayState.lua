@@ -28,6 +28,8 @@ function PlayState:enter(params)
     self.highScores = params.highScores
     self.ball = params.ball
     self.level = params.level
+    
+    self.paused = false
 
     self.recoverPoints = 5000
 
@@ -93,7 +95,7 @@ function PlayState:update(dt)
                 self.health = math.min(3, self.health + 1)
 
                 -- multiply recover points by 2
-                self.recoverPoints = self.recoverPoints + math.min(100000, self.recoverPoints * 2)
+                self.recoverPoints = math.min(100000, self.recoverPoints * 2)
 
                 -- play recover sound effect
                 gSounds['recover']:play()
